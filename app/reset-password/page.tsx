@@ -58,7 +58,10 @@ export default function ResetPasswordPage() {
     } catch (error) {
       toast({
         title: 'Error',
-        description: 'Failed to process your request. Please try again.',
+        description:
+          error instanceof Error
+            ? error.message
+            : 'Failed to process your request. Please try again.',
         variant: 'destructive'
       });
     } finally {

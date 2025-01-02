@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Suspense } from 'react';
 import { ApiKeysDashboard } from './components/api-keys-dashboard';
@@ -10,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { supabase } from '@/lib/supabase';
 
 export default function DashboardsPage() {
-  const { user, loading } = useAuth();
+  const { loading } = useAuth();
   const router = useRouter();
 
   const handleSignOut = async () => {
