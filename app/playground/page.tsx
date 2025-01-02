@@ -42,7 +42,10 @@ export default function PlaygroundPage() {
     } catch (error) {
       toast({
         title: 'Invalid API Key',
-        description: 'The provided API key is not valid',
+        description:
+          error instanceof Error
+            ? error.message
+            : 'The provided API key is not valid',
         variant: 'destructive'
       });
     } finally {

@@ -24,7 +24,7 @@ import { EditApiKeyDialog } from './edit-api-key-dialog';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/lib/supabase';
 
-interface ApiKey {
+export interface ApiKey {
   id: string;
   name: string;
   key: string;
@@ -183,7 +183,8 @@ export function ApiKeysDashboard() {
     } catch (error) {
       toast({
         title: 'Error',
-        description: 'Failed to copy API key',
+        description:
+          error instanceof Error ? error.message : 'Failed to copy API key',
         variant: 'destructive'
       });
     }
